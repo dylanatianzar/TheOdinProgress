@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM Test with Javascript</title>
+    </head>
+    <body>
+
+        <button id="id">CLICK ME!</button>
+        <div id="container">
+            <button id="1">Click Me</button>
+            <button id="2">Click Me</button>
+            <button id="3">Click Me</button>
+          </div>
+
+        <script>
+            const body = document.querySelector("body");
+            const redText = document.createElement("p");
+            const h3 = document.createElement("h3");
+            const div = document.createElement("div");
+
+            redText.textContent = "Hey I'm Red!";
+            redText.style.color = "red";
+            body.appendChild(redText);
+
+            h3.textContent = "I'm a blue h3!";
+            h3.style.color = "blue";
+            body.appendChild(h3);
+
+            div.style.border = "2px solid black";
+            div.style.backgroundColor = "pink";
+            body.appendChild(div);
+
+            const h1 = document.createElement("h1");
+            const secondText = document.createElement("p");
+
+            h1.textContent = "Hey I'm in a div too!";
+            secondText.textContent = "ME TOO!";
+
+            div.append(h1);
+            div.append(secondText);
+
+            const btn = document.querySelector("#id");
+            btn.addEventListener("click", function (e) { 
+                e.target.style.backgroundColor = "blue";
+            });
+
+            const btns = document.querySelectorAll("button");
+
+            btns.forEach((button) => {
+                button.addEventListener("click", () => {
+                    alert(button.id);
+                });
+            });
+        </script>
+    </body>
+</html>
