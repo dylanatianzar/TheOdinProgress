@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock, Paper, Scissors!</title>
+    </head>
+    <body>
+
+        <script>
+            let capitalize = str => str[0].toUpperCase() + str.slice(1).toLowerCase(); 
+
+            const rps = ["Rock", "Paper", "Scissors"];
+            let getComputerChoice = () => rps[Math.floor(Math.random()*3)];
+            let getHumanChoice = () => {
+                humanChoice = capitalize(prompt("Rock, Paper or Scissors?"));
+                if (!rps.includes(humanChoice)) {
+                    alert("Please state a valid option.");
+                }
+                return humanChoice;
+            };
+
+            let template = (winner, loser) => `${winner} beats ${loser}!`;
+
+            let playGame = () => {
+
+                let humanScore = 0,
+                    computerScore = 0;
+
+                let playRound = (humanChoice, computerChoice) => {
+                    let humanIdx = rps.indexOf(humanChoice), computerIdx = rps.indexOf(computerChoice);
+                    if (humanIdx != computerIdx) {
+                        let win = (humanIdx === (computerIdx + 1)%3) ? humanChoice : computerChoice;
+                        let lose;
+                        if (win === humanChoice) {
+                            lose = computerChoice;
+                            humanScore++;
+                        } 
+                        else {
+                            lose = humanChoice;
+                            computerScore++;
+                        }
+                    console.log(template(win,lose))  
+                    }
+                    else {
+                        console.log("DRAW!");
+                    }
+                };
+
+                for (let i = 0; i < 5; i++){
+                    let humanChoice = getHumanChoice(),
+                        computerChoice = getComputerChoice();
+            
+                    playRound(humanChoice, computerChoice);
+                    console.log(`The score is:
+                            Human: ${humanScore}
+                            Computer: ${computerScore}`);
+                }
+
+                console.log((humanScore > computerScore) ? "Human wins!" : "Computer Wins!");
+            };
+
+            playGame();
+        </script>
+    </body>
+    <footer>
+
+    </footer>
+</html>
