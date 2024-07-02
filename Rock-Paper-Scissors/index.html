@@ -15,14 +15,15 @@
             let getHumanChoice = () => {
 
                 humanChoice = prompt("Rock, Paper or Scissors?");
-                if (humanChoice === null) {
+                if (humanChoice == "") {
                     alert("Please state a valid option. The game has terminated early.");
-                    return;
+                    throw new Error("Invalid input.");
                 } 
 
                 humanChoice = capitalize(humanChoice);
                 if (!rps.includes(humanChoice)) {
                     alert("Please state a valid option. The game has terminated early.");
+                    throw new Error("Invalid input.");
                 }
                 return humanChoice;
             };
