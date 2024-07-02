@@ -13,11 +13,14 @@
             const rps = ["Rock", "Paper", "Scissors"];
             let getComputerChoice = () => rps[Math.floor(Math.random()*3)];
             let getHumanChoice = () => {
-                humanChoice = capitalize(prompt("Rock, Paper or Scissors?"));
+                humanChoice = prompt("Rock, Paper or Scissors?");
                 if (humanChoice.length == 0) {
                     alert("Please state a valid option.");
-                } else if (!rps.includes(humanChoice)) {
-                    alert("No Human Choice Detected. State a valid option.")
+                } 
+
+                humanChoice = capitalize(humanChoice);
+                if (!rps.includes(humanChoice)) {
+                    alert("Please state a valid option.");
                 }
                 return humanChoice;
             };
