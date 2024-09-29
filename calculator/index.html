@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="flex project">
+        <div class="calculator">
+            <div class="flex display">
+                <div class="flex clear">
+                    Clear
+                </div>
+            </div>
+            <div class="flex type"> 
+                <div class="flex digits">
+                    <div class="flex num">0</div>
+                    <div class="flex num">1</div>
+                    <div class="flex num">2</div>
+                    <div class="flex num">3</div>
+                    <div class="flex num">4</div>
+                    <div class="flex num">5</div>
+                    <div class="flex num">6</div>
+                    <div class="flex num">7</div>
+                    <div class="flex num">8</div>
+                    <div class="flex num">9</div>
+                </div>
+                <div class="flex operations">
+                    <div id="plus" class="flex operation">&#43;</div>
+                    <div id="minus" class="flex operation">&#8722;</div>
+                    <div id="multiply" class="flex operation">&times</div>
+                    <div id="divide" class="flex operation">&divide</div>
+                    <div id="equal" class="flex operation">&#61</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function operate(firstNum, secondNum, operator) {
+            switch(operator) {
+                case "plus":
+                    return firstNum + secondNum;
+                case "minus":
+                    return firstNum - secondNum;
+                case "multiply":
+                    return firstNum * secondNum;
+                case "divide":
+                    return firstNum/secondNum;
+                default:
+                    return firstNum;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
